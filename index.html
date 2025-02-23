@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Factoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <div class="logo fw-bold">Logoipsum</div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Help Center</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Get Started</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#demoModal">Request a Demo</a>
+        </div>
+    </header>
+    
+    <section id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero text-white d-flex align-items-center" style="background-color: #111827; height: 50vh;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1 class="fw-bold">Get instant cash flow with invoice factoring</h1>
+                                <p class="mt-3">Why wait? Get same-day funding and a faster way to access cash flow.</p>
+                                <form action="backend.php" method="POST">
+                                    <input type="hidden" name="action" value="get_started">
+                                    <button type="submit" class="btn btn-lg btn-primary mt-3">Get Started</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero text-white d-flex align-items-center" style="background-color: #111827; height: 50vh;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1 class="fw-bold">Get fast and secure payments</h1>
+                                <p class="mt-3">Secure transactions with reliable invoice factoring.</p>
+                                <form action="backend.php" method="POST">
+                                    <input type="hidden" name="action" value="learn_more">
+                                    <button type="submit" class="btn btn-lg btn-primary mt-3">Learn More</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero text-white d-flex align-items-center" style="background-color: #111827; height: 50vh;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1 class="fw-bold">Grow your business faster</h1>
+                                <p class="mt-3">Utilize invoice factoring to expand with ease.</p>
+                                <form action="backend.php" method="POST">
+                                    <input type="hidden" name="action" value="get_started_now">
+                                    <button type="submit" class="btn btn-lg btn-primary mt-3">Get Started Now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-indicators position-absolute bottom-0">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active bg-primary" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="bg-primary" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="bg-primary" aria-label="Slide 3"></button>
+        </div>
+    </section>
+ 
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" action="login.php" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <p id="loginMessage" class="mt-2"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Request Demo Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="demoModalLabel">Request a Demo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="demoForm" action="demo.php" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="demoEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="demoEmail" name="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <p id="demoMessage" class="mt-2"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="payment-collection">
+    <h2 class="section-title">Outsource payment collection</h2>
+    <p class="section-subtitle">Faster and flexible access to cash flow from one or all your invoices.</p>
+    <div class="features">
+        <div class="feature-item">
+            <img src="earth-icon.png" alt="Earth Icon" class="feature-icon">
+            <h3>Access up to $100,000</h3>
+            <p>We fund each invoice once approved and collect payment to optimise your cash flow.*</p>
+        </div>
+        <div class="feature-item">
+            <img src="earth-icon.png" alt="Earth Icon" class="feature-icon">
+            <h3>You choose invoices to get paid</h3>
+            <p>Self-serve online portal available 24/7 or connect from your CRM or invoicing platform.</p>
+        </div>
+        <div class="feature-item">
+            <img src="earth-icon.png" alt="Earth Icon" class="feature-icon">
+            <h3>Simple pricing</h3>
+            <p>Only pay for what you use, if you don’t need us, there are no costs.</p>
+        </div>
+        <div class="feature-item">
+            <img src="earth-icon.png" alt="Earth Icon" class="feature-icon">
+            <h3>Click and quick</h3>
+            <p>We fund each invoice once approved and collect payment to optimise your cash flow.*</p>
+        </div>
+        <div class="feature-item">
+            <img src="earth-icon.png" alt="Earth Icon" class="feature-icon">
+            <h3>Flexible</h3>
+            <p>Self-serve online portal available 24/7 or connect from your CRM or invoicing platform.</p>
+        </div>
+        <div class="feature-item">
+            <img src="earth-icon.png" alt="Earth Icon" class="feature-icon">
+            <h3>Invest in your business</h3>
+            <p>Only pay for what you use, if you don’t need us, there are no costs.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="task-container">
+    <h1 class="title">Task Manager</h1>
+    <p class="subtitle">Your daily to-do list</p>
+    
+    <div class="task-box">
+        <div class="task">
+            <input type="checkbox" id="task1">
+            <label for="task1">Task item one</label>
+            <button class="delete-task">Delete</button>
+        </div>
+        <div class="task">
+            <input type="checkbox" id="task2" checked>
+            <label for="task2">Task Item Two</label>
+        </div>
+        <div class="task-input">
+            <input type="text" placeholder="Add new task">
+        </div>
+        <button class="add-task">Add Task</button>
+    </div>
+</div>
+
+
+
+
+<section class="contact-us">
+    <h2 class="contact-title">Contact us</h2>
+    <p class="contact-subtitle">Speak with our team to see how we can help your business.</p>
+    <form class="contact-form">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Your best contact number" required>
+        <input type="text" placeholder="Business or company name" required>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>
+                Curabitur consequat, purus a scelerisque sagittis, nulla metus tincidunt elit, vel venenatis nulla libero nec nulla.
+                Suspendisse potenti. Aenean a justo vel sapien pellentesque tincidunt. Sed luctus, elit ac interdum convallis, ligula libero egestas orci, at auctor felis ligula nec odio.
+            </p>
+            <div class="social-icons">
+                <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                <a href="#"><img src="email-icon.png" alt="Email"></a>
+            </div>
+        </div>
+        <div class="footer-center">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="#">Payments</a></li>
+                <li><a href="#">Invoice Factoring</a></li>
+                <li><a href="#">Invoice Finance</a></li>
+                <li><a href="#">Supplier Finance</a></li>
+                <li><a href="#">Customer Finance</a></li>
+            </ul>
+        </div>
+        <div class="footer-center">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </div>
+        <div class="footer-center">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Knowledge Base</a></li>
+                <li><a href="#">API Documentation</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Site Map</a>
+        <span>@ebpearls</span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+
+</body></html>
